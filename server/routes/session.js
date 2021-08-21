@@ -13,13 +13,16 @@ router.post('/', function(req, res, next) {
     if(psw == rpsw){
         res.render('account', {title:'Prova', date: new Date(),user: username, mail: email}); 
     } else{
-        res.send("<p style= \"color:red\"> Le password non coincidono!</p>");
+        res.send("<p style= \"color:red\"> Le password non coincidono!</p>")
     }
   
 });
 
 router.get('/', function(req, res, next){
-    console.log(users);
+    let mail=req.query.user;
+    //let user = users.find(el=>el.mail == mail); 
+    res.send(mail);
+
 });
 
 
