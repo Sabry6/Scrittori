@@ -1,0 +1,17 @@
+extends layout 
+
+block content 
+  .container 
+    h1 Crea il tuo account studente! 
+    form.row(method='post', action='/account')
+      .col-md-10.col-12 
+        input.tube-control(type="text" placeholder="Inserisci l'username", name="username")
+      .col-md-10.col-12 
+        input.tube-control(type="email" placeholder="Inserisci l'indirizzo email", name="email")
+      .col-md-10.col-12 
+        input.tube-control(type="password" placeholder="Inserisci la password", name="psw")
+      .col-md-10.col-12 
+        input.tube-control(type="password" placeholder="Conferma password", name="rpsw")
+      .col-md-2.col-12 
+        button.tube-button(type="submit", value= "Registrati") Registrati
+
