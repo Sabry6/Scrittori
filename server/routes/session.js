@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+const users = require('../users.json');
+
 /* GET users listing. */
 router.post('/', function(req, res, next) {
     let username = req.body.username;
@@ -11,16 +13,15 @@ router.post('/', function(req, res, next) {
     if(psw == rpsw){
         res.render('account', {title:'Prova', date: new Date(),user: username, mail: email}); 
     } else{
-        res.send("<p style= \"color:red\"> Le password non coincidono!</p>")
+        res.send("<p style= \"color:red\"> Le password non coincidono!</p>");
     }
- 
   
 });
 
-router.get('/dash', function(req, res, next) {
- 
-    res.render('index', {title:'Prova', date: new Date()});
-  });
+router.get('/', function(req, res, next){
+    console.log(users);
+});
+
 
 module.exports = router;
 
