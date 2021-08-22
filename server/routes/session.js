@@ -3,6 +3,10 @@ var router = express.Router();
 
 const users = require('../users.json');
 
+router.get('/upload', function(req, res, next){
+    res.render('upload', {title:'Upload Test'});
+});
+
 /* GET users listing. */
 router.post('/', function(req, res, next) {
     let username = req.body.username;
@@ -26,10 +30,10 @@ router.post('/', function(req, res, next) {
 
 });*/
 
-router.get('/:email', function(req, res, next){
+router.get('/:email/:color', function(req, res, next){
     let mail=req.params.email;
     let user = users.find(el=>el.email == mail); 
-    //user["color"]=req.query.color;
+    user["color"]=req.params.color;
     res.render('user',user);
 });
 
