@@ -2,6 +2,12 @@ var express = require('express');
 var router = express.Router();
 
 const users = require('../users.json');
+const multipart = require('connect-multipart');
+const multipartMiddleware = multipart({uploadDir:'./uploads'});
+
+router.post('/upload',multipartMiddleware,function(req,res,next){
+    res.send("File caricato!");
+})
 
 router.get('/upload', function(req, res, next){
     res.render('upload', {title:'Upload Test'});
