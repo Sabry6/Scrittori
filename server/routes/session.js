@@ -18,13 +18,20 @@ router.post('/', function(req, res, next) {
   
 });
 
-router.get('/', function(req, res, next){
+/*router.get('/', function(req, res, next){
     let mail=req.query.user;
-    //let user = users.find(el=>el.mail == mail); 
-    res.send(mail);
+    let user = users.find(el=>el.email == mail); 
+    user["color"]=req.query.color;
+    res.render('user',user);
 
+});*/
+
+router.get('/:email', function(req, res, next){
+    let mail=req.params.email;
+    let user = users.find(el=>el.email == mail); 
+    //user["color"]=req.query.color;
+    res.render('user',user);
 });
-
 
 module.exports = router;
 
